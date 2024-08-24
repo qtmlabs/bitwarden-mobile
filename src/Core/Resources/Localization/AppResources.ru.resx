@@ -2994,4 +2994,7 @@
   <data name="PasskeyOperationFailedBecauseAppCouldNotBeVerified" xml:space="preserve">
     <value>Операция с Passkey не удалась, поскольку не удалось проверить приложение</value>
   </data>
+  <data name="PasskeyAlreadyExistsForThisUser" xml:space="preserve">
+    <value>Passkey already exists for this user</value>
+  </data>
 </root>

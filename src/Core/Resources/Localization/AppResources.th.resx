@@ -3000,4 +3000,7 @@ Do you want to switch to this account?</value>
   <data name="PasskeyOperationFailedBecauseAppCouldNotBeVerified" xml:space="preserve">
     <value>Passkey operation failed because app could not be verified</value>
   </data>
+  <data name="PasskeyAlreadyExistsForThisUser" xml:space="preserve">
+    <value>Passkey already exists for this user</value>
+  </data>
 </root>

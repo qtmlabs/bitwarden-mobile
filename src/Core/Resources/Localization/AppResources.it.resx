@@ -2992,4 +2992,7 @@ Vuoi passare a questo account?</value>
   <data name="PasskeyOperationFailedBecauseAppCouldNotBeVerified" xml:space="preserve">
     <value>L'operazione della passkey non è riuscita perché non è stato possibile verificare l'app</value>
   </data>
+  <data name="PasskeyAlreadyExistsForThisUser" xml:space="preserve">
+    <value>Passkey already exists for this user</value>
+  </data>
 </root>

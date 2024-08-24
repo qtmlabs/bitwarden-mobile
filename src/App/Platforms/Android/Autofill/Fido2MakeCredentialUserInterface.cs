@@ -131,10 +131,9 @@ namespace Bit.App.Platforms.Android.Autofill
             await _unlockVaultTcs.Task;
         }
 
-        public Task InformExcludedCredentialAsync(string[] existingCipherIds)
+        public async Task InformExcludedCredentialAsync(string[] existingCipherIds)
         {
-            // TODO: Show excluded credential to the user in some screen.
-            return Task.FromResult(true);
+            await _deviceActionService.DisplayAlertAsync(AppResources.ErrorCreatingPasskey, AppResources.PasskeyAlreadyExistsForThisUser, AppResources.Ok);
         }
 
         public void SetCheckHasVaultBeenUnlockedInThisTransaction(Func<bool> checkHasVaultBeenUnlockedInThisTransaction)

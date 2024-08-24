@@ -2992,4 +2992,7 @@
   <data name="PasskeyOperationFailedBecauseAppCouldNotBeVerified" xml:space="preserve">
     <value>Операцията със секретния ключ беше неуспешна, тъй като приложението не може да бъде потвърдено</value>
   </data>
+  <data name="PasskeyAlreadyExistsForThisUser" xml:space="preserve">
+    <value>Passkey already exists for this user</value>
+  </data>
 </root>

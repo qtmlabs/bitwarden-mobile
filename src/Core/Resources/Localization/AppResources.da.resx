@@ -2992,4 +2992,7 @@ Vil du skifte til denne konto?</value>
   <data name="PasskeyOperationFailedBecauseAppCouldNotBeVerified" xml:space="preserve">
     <value>Adgangsnøglehandling mislykkedes, da appen ikke kunne bekræftes</value>
   </data>
+  <data name="PasskeyAlreadyExistsForThisUser" xml:space="preserve">
+    <value>Passkey already exists for this user</value>
+  </data>
 </root>

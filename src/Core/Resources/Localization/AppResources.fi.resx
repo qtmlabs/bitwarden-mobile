@@ -2993,4 +2993,7 @@ Haluatko vaihtaa tähän tiliin?</value>
   <data name="PasskeyOperationFailedBecauseAppCouldNotBeVerified" xml:space="preserve">
     <value>Pääsyavaintoiminto epäonnistui, koska sovellusta ei voitu varmentaa</value>
   </data>
+  <data name="PasskeyAlreadyExistsForThisUser" xml:space="preserve">
+    <value>Passkey already exists for this user</value>
+  </data>
 </root>

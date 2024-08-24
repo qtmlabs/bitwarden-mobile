@@ -2992,4 +2992,7 @@ Wilt u naar dit account wisselen?</value>
   <data name="PasskeyOperationFailedBecauseAppCouldNotBeVerified" xml:space="preserve">
     <value>Passkey-bewerking mislukt omdat de app niet geverifieerd kon worden</value>
   </data>
+  <data name="PasskeyAlreadyExistsForThisUser" xml:space="preserve">
+    <value>Passkey already exists for this user</value>
+  </data>
 </root>

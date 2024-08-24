@@ -2991,4 +2991,7 @@ Deseja mudar para esta conta?</value>
   <data name="PasskeyOperationFailedBecauseAppCouldNotBeVerified" xml:space="preserve">
     <value>A operação da chave de acesso falhou porque a aplicação não pôde ser verificada</value>
   </data>
+  <data name="PasskeyAlreadyExistsForThisUser" xml:space="preserve">
+    <value>Passkey already exists for this user</value>
+  </data>
 </root>

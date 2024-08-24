@@ -2991,4 +2991,7 @@ Möchtest du zu diesem Konto wechseln?</value>
   <data name="PasskeyOperationFailedBecauseAppCouldNotBeVerified" xml:space="preserve">
     <value>Der Passkey-Vorgang ist fehlgeschlagen, da die App nicht verifiziert werden konnte</value>
   </data>
+  <data name="PasskeyAlreadyExistsForThisUser" xml:space="preserve">
+    <value>Passkey already exists for this user</value>
+  </data>
 </root>

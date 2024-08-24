@@ -5219,6 +5219,15 @@ namespace Bit.Core.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Passkey already exists for this user.
+        /// </summary>
+        public static string PasskeyAlreadyExistsForThisUser {
+            get {
+                return ResourceManager.GetString("PasskeyAlreadyExistsForThisUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Passkey management.
         /// </summary>
         public static string PasskeyManagement {

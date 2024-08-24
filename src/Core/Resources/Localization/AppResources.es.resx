@@ -2993,4 +2993,7 @@ seleccione Agregar TOTP para almacenar la clave de forma segura</value>
   <data name="PasskeyOperationFailedBecauseAppCouldNotBeVerified" xml:space="preserve">
     <value>Falló la operación de la clave de acceso porque la aplicación no pudo ser verificada</value>
   </data>
+  <data name="PasskeyAlreadyExistsForThisUser" xml:space="preserve">
+    <value>Passkey already exists for this user</value>
+  </data>
 </root>

@@ -2991,4 +2991,7 @@ Chcete se přepnout na tento účet?</value>
   <data name="PasskeyOperationFailedBecauseAppCouldNotBeVerified" xml:space="preserve">
     <value>Operace přístupového klíče se nezdařila, protože aplikaci nelze ověřit</value>
   </data>
+  <data name="PasskeyAlreadyExistsForThisUser" xml:space="preserve">
+    <value>Passkey already exists for this user</value>
+  </data>
 </root>

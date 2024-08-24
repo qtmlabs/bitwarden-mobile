@@ -2993,4 +2993,7 @@ Bạn có muốn chuyển sang tài khoản này không?</value>
   <data name="PasskeyOperationFailedBecauseAppCouldNotBeVerified" xml:space="preserve">
     <value>Thao tác mã khóa không thành công vì không thể xác minh ứng dụng</value>
   </data>
+  <data name="PasskeyAlreadyExistsForThisUser" xml:space="preserve">
+    <value>Passkey already exists for this user</value>
+  </data>
 </root>

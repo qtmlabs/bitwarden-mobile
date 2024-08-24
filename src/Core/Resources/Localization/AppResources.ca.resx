@@ -2992,4 +2992,7 @@ Voleu canviar a aquest compte?</value>
   <data name="PasskeyOperationFailedBecauseAppCouldNotBeVerified" xml:space="preserve">
     <value>L'operació de la clau de pas ha fallat perquè l'aplicació no s'ha pogut verificar</value>
   </data>
+  <data name="PasskeyAlreadyExistsForThisUser" xml:space="preserve">
+    <value>Passkey already exists for this user</value>
+  </data>
 </root>

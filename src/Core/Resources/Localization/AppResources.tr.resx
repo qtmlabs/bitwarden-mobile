@@ -2991,4 +2991,7 @@ Bu hesaba geçmek ister misiniz?</value>
   <data name="PasskeyOperationFailedBecauseAppCouldNotBeVerified" xml:space="preserve">
     <value>Geçiş anahtarı eylemi başarısız oldu çünkü uygulama doğrulanamadı</value>
   </data>
+  <data name="PasskeyAlreadyExistsForThisUser" xml:space="preserve">
+    <value>Passkey already exists for this user</value>
+  </data>
 </root>

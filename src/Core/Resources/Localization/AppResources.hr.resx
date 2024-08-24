@@ -2990,4 +2990,7 @@
   <data name="PasskeyOperationFailedBecauseAppCouldNotBeVerified" xml:space="preserve">
     <value>Operacija pristupnog ključa nije uspjela jer nije bilo moguće provjeriti aplikaciju</value>
   </data>
+  <data name="PasskeyAlreadyExistsForThisUser" xml:space="preserve">
+    <value>Passkey already exists for this user</value>
+  </data>
 </root>

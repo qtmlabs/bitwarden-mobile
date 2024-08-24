@@ -2991,4 +2991,7 @@ Szeretnénk átváltani erre a fiókra?</value>
   <data name="PasskeyOperationFailedBecauseAppCouldNotBeVerified" xml:space="preserve">
     <value>A belépőkulcs művelet nem sikerült, mert az alkalmazás nem lett ellenőrizve.</value>
   </data>
+  <data name="PasskeyAlreadyExistsForThisUser" xml:space="preserve">
+    <value>Passkey already exists for this user</value>
+  </data>
 </root>

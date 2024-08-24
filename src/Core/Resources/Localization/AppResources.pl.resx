@@ -2992,4 +2992,7 @@ Czy chcesz przełączyć się na to konto?</value>
   <data name="PasskeyOperationFailedBecauseAppCouldNotBeVerified" xml:space="preserve">
     <value>Operacja z Passkey nie powiodła się, ponieważ aplikacja nie mogła zostać zweryfikowana</value>
   </data>
+  <data name="PasskeyAlreadyExistsForThisUser" xml:space="preserve">
+    <value>Passkey already exists for this user</value>
+  </data>
 </root>

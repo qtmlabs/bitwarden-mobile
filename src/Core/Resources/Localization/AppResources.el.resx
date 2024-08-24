@@ -2992,4 +2992,7 @@
   <data name="PasskeyOperationFailedBecauseAppCouldNotBeVerified" xml:space="preserve">
     <value>Αποτυχία λειτουργίας κλειδιού πρόσβασης επειδή δεν ήταν δυνατή η επαλήθευση της εφαρμογής</value>
   </data>
+  <data name="PasskeyAlreadyExistsForThisUser" xml:space="preserve">
+    <value>Passkey already exists for this user</value>
+  </data>
 </root>
