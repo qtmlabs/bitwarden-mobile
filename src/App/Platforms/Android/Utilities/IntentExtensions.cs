@@ -1,5 +1,6 @@
 ﻿using Android.Content;
 using Android.OS;
+using Bit.Core.Utilities.Fido2;
 using Java.Lang;
 using Exception = System.Exception;
 
@@ -24,6 +25,17 @@ namespace Bit.App.Droid.Utilities
             {
                 intent.ReplaceExtras((Bundle)null);
             }
+        }
+
+        public static bool IsPasskeyHandlerIntent(this Intent intent)
+        {
+            return intent?.Component?.ClassName == "com.x8bit.bitwarden.PasskeyHandlerActivity";
+        }
+
+        public static string GetFido2CredentialAction(this Intent intent)
+        {
+            if (!intent.IsPasskeyHandlerIntent()) return null;
+            return intent.GetStringExtra(CredentialProviderConstants.Fido2CredentialAction);
         }
     }
 }

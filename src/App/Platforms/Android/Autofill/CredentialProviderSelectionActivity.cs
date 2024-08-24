@@ -20,6 +20,7 @@ namespace Bit.Droid.Autofill
 {
     [Activity(
         Theme = "@style/PasskeyHandlerTheme",
+        Exported = false,
         NoHistory = true,
         LaunchMode = LaunchMode.SingleTop)]
     public class CredentialProviderSelectionActivity : MauiAppCompatActivity

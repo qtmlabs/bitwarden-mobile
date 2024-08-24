@@ -168,7 +168,7 @@ namespace Bit.Droid
             base.OnNewIntent(intent);
             try
             {
-                if (intent?.GetStringExtra(CredentialProviderConstants.Fido2CredentialAction) == CredentialProviderConstants.Fido2CredentialCreate
+                if (intent?.GetFido2CredentialAction() == CredentialProviderConstants.Fido2CredentialCreate
                     &&
                     _appOptions != null)
                 {
@@ -333,7 +333,7 @@ namespace Bit.Droid
 
         private AppOptions GetOptions()
         {
-            var fido2CredentialAction = Intent.GetStringExtra(CredentialProviderConstants.Fido2CredentialAction);
+            var fido2CredentialAction = Intent.GetFido2CredentialAction();
             var options = new AppOptions
             {
                 Uri = Intent.GetStringExtra("uri") ?? Intent.GetStringExtra(AutofillConstants.AutofillFrameworkUri),
