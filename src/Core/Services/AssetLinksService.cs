@@ -28,9 +28,9 @@ namespace Bit.Core.Services
                                 && 
                                 s.Target.PackageName == packageName
                                 &&
-                                s.Relation.Contains("delegate_permission/common.get_login_creds")
-                                &&
-                                s.Relation.Contains("delegate_permission/common.handle_all_urls"));
+                                (s.Relation.Contains("delegate_permission/common.get_login_creds")
+                                 ||
+                                 s.Relation.Contains("delegate_permission/common.handle_all_urls")));
 
                 if (!androidAppPackageStatements.Any())
                 {

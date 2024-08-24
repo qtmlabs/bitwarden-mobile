@@ -72,7 +72,7 @@ namespace Bit.Core.Test.Services
         }
         
         [Fact]
-        public async Task ValidateAssetLinksAsync_Throws_When_Data_Statement_Has_No_GetLoginCreds_Relation()
+        public async Task ValidateAssetLinksAsync_Returns_True_When_Data_Statement_Has_No_GetLoginCreds_Relation()
         {
             // Arrange
             _sutProvider.GetDependency<IApiService>()
@@ -80,14 +80,14 @@ namespace Bit.Core.Test.Services
                 .Returns(Task.FromResult(Deserialize(BasicAssetLinksTestData.OneStatementNoGetLoginCredsRelationJson())));
 
             // Act
-            var exception = await Assert.ThrowsAsync<Exceptions.ValidationException>(() => _sutProvider.Sut.ValidateAssetLinksAsync(_validRpId, _validPackageName, _validFingerprint));
+            var isValid = await _sutProvider.Sut.ValidateAssetLinksAsync(_validRpId, _validPackageName, _validFingerprint);
 
             // Assert
-            Assert.Equal(AppResources.PasskeyOperationFailedBecauseAppNotFoundInAssetLinks, exception.Message);
+            Assert.True(isValid);
         }
 
         [Fact]
-        public async Task ValidateAssetLinksAsync_Throws_When_Data_Statement_Has_No_HandleAllUrls_Relation()
+        public async Task ValidateAssetLinksAsync_Returns_True_When_Data_Statement_Has_No_HandleAllUrls_Relation()
         {
             // Arrange
             _sutProvider.GetDependency<IApiService>()
@@ -95,10 +95,10 @@ namespace Bit.Core.Test.Services
                 .Returns(Task.FromResult(Deserialize(BasicAssetLinksTestData.OneStatementNoHandleAllUrlsRelationJson())));
 
             // Act
-            var exception = await Assert.ThrowsAsync<Exceptions.ValidationException>(() => _sutProvider.Sut.ValidateAssetLinksAsync(_validRpId, _validPackageName, _validFingerprint));
+            var isValid = await _sutProvider.Sut.ValidateAssetLinksAsync(_validRpId, _validPackageName, _validFingerprint);
 
             // Assert
-            Assert.Equal(AppResources.PasskeyOperationFailedBecauseAppNotFoundInAssetLinks, exception.Message);
+            Assert.True(isValid);
         }
 
         [Fact]
