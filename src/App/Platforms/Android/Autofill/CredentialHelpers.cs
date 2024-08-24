@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Nodes;
+using System.Text.Json;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -29,9 +29,12 @@ namespace Bit.App.Platforms.Android.Autofill
         {
             var passkeyEntries = new List<CredentialEntry>();
             var requestOptions = new PublicKeyCredentialRequestOptions(option.RequestJson);
+            var allowedCredentials = ParsePublicKeyCredentialDescriptors(option.RequestJson, "allowCredentials");
 
             var authenticator = Bit.Core.Utilities.ServiceContainer.Resolve<IFido2AuthenticatorService>();
-            var credentials = await authenticator.SilentCredentialDiscoveryAsync(requestOptions.RpId);
+            var credentials = allowedCredentials.Length != 0
+                ? await authenticator.SilentCredentialDiscoveryAsync(allowedCredentials, requestOptions.RpId)
+                : await authenticator.SilentCredentialDiscoveryAsync(requestOptions.RpId);
 
             // We need to change the request code for every pending intent on mapping the credential so the extras are not overriten by the last
             // credential entry created.
@@ -76,6 +79,40 @@ namespace Bit.App.Platforms.Android.Autofill
                 authenticatorSelection.OptString("userVerification", "preferred"));
 
             return request;
+        }
+
+        private static Core.Utilities.Fido2.PublicKeyCredentialDescriptor[] ParsePublicKeyCredentialDescriptors(string json, string field)
+        {
+            var descriptors = new List<Core.Utilities.Fido2.PublicKeyCredentialDescriptor>();
+            using (var jsonDocument = JsonDocument.Parse(json))
+            {
+                if (jsonDocument.RootElement.TryGetProperty(field, out JsonElement credentialsJson))
+                {
+                    foreach (var credentialJson in credentialsJson.EnumerateArray())
+                    {
+                        var descriptor = new Core.Utilities.Fido2.PublicKeyCredentialDescriptor();
+                        if (credentialJson.TryGetProperty("type", out JsonElement typeJson))
+                        {
+                            descriptor.Type = typeJson.GetString();
+                        }
+                        if (credentialJson.TryGetProperty("transports", out JsonElement transportsJson))
+                        {
+                            var transports = new List<string>();
+                            foreach (var transport in transportsJson.EnumerateArray())
+                            {
+                                transports.Add(transport.GetString());
+                            }
+                            descriptor.Transports = transports.ToArray();
+                        }
+                        if (credentialJson.TryGetProperty("id", out JsonElement credentialIdJson))
+                        {
+                            descriptor.Id = CoreHelpers.Base64UrlDecode(credentialIdJson.GetString());
+                        }
+                        descriptors.Add(descriptor);
+                    }
+                }
+            }
+            return descriptors.ToArray();
         }
 
         public static async Task CreateCipherPasskeyAsync(ProviderCreateCredentialRequest getRequest, Activity activity)
