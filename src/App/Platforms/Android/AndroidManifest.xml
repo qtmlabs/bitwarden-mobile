@@ -39,6 +39,7 @@
 				<data android:mimeType="text/*" />
 			</intent-filter>
 		</activity>
+        <activity android:name="com.x8bit.bitwarden.PasskeyHandlerActivity" android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenSize|uiMode" android:exported="false" android:icon="@mipmap/ic_launcher" android:label="Bitwarden" android:launchMode="@integer/launchModeAPIlevel" android:theme="@style/PasskeyHandlerTheme" />
 	</application>
 	<!-- Support for Xamarin.Essentials.Browser.OpenAsync  (for Android > 11) -->
 	<!-- Related docs: https://learn.microsoft.com/en-us/xamarin/essentials/open-browser?tabs=android -->

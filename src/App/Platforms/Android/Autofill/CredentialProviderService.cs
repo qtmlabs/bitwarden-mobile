@@ -61,7 +61,7 @@ namespace Bit.Droid.Autofill
                     return;
                 }
 
-                var intent = new Intent(ApplicationContext, typeof(MainActivity));
+                var intent = new Intent(ApplicationContext, typeof(PasskeyHandlerActivity));
                 intent.PutExtra(CredentialProviderConstants.Fido2CredentialAction, CredentialProviderConstants.Fido2CredentialGet);
                 var pendingIntent = PendingIntent.GetActivity(ApplicationContext, UniqueGetRequestCode, intent,
                     AndroidHelpers.AddPendingIntentMutabilityFlag(PendingIntentFlags.UpdateCurrent, true));
@@ -106,7 +106,7 @@ namespace Bit.Droid.Autofill
 
         private async Task<BeginCreateCredentialResponse> HandleCreatePasskeyQueryAsync(BeginCreatePublicKeyCredentialRequest optionRequest)
         {
-            var intent = new Intent(ApplicationContext, typeof(MainActivity));
+            var intent = new Intent(ApplicationContext, typeof(PasskeyHandlerActivity));
             intent.PutExtra(CredentialProviderConstants.Fido2CredentialAction, CredentialProviderConstants.Fido2CredentialCreate);
             var pendingIntent = PendingIntent.GetActivity(ApplicationContext, UniqueCreateRequestCode, intent,
                 AndroidHelpers.AddPendingIntentMutabilityFlag(PendingIntentFlags.UpdateCurrent, true));

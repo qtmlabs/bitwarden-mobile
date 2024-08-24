@@ -22,4 +22,9 @@
     <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
     <item name="android:textAllCaps">false</item>
   </style> 
+
+  <!-- Workaround for apps that cancel credential manager requests when paused -->
+  <style name="PasskeyHandlerTheme" parent="LaunchTheme">
+    <item name="android:windowIsTranslucent">true</item>
+  </style>
 </resources>

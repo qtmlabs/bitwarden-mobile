@@ -19,6 +19,7 @@ using Org.Json;
 namespace Bit.Droid.Autofill
 {
     [Activity(
+        Theme = "@style/PasskeyHandlerTheme",
         NoHistory = true,
         LaunchMode = LaunchMode.SingleTop)]
     public class CredentialProviderSelectionActivity : MauiAppCompatActivity
