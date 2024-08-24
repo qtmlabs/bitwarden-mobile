@@ -176,9 +176,9 @@ namespace Bit.App.Platforms.Android.Autofill
             }
 
             var excludeCredentials = new List<Core.Utilities.Fido2.PublicKeyCredentialDescriptor>();
-            foreach (var excludeCred in credentialCreationOptions.ExcludeCredentials)
+            foreach (var excludeCred in ParsePublicKeyCredentialDescriptors(callingRequest.RequestJson, "excludeCredentials"))
             {
-                excludeCredentials.Add(new Core.Utilities.Fido2.PublicKeyCredentialDescriptor() { Id = excludeCred.GetId(), Type = excludeCred.Type, Transports = excludeCred.Transports.ToArray() });
+                excludeCredentials.Add(excludeCred);
             }
 
             var authenticatorSelection = new Core.Utilities.Fido2.AuthenticatorSelectionCriteria()
