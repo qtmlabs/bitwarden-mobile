@@ -72,10 +72,20 @@ namespace Bit.App.Platforms.Android.Autofill
             var request = new PublicKeyCredentialCreationOptions(json);
             var jsonObj = new JSONObject(json);
             var authenticatorSelection = jsonObj.GetJSONObject("authenticatorSelection");
+            var requireResidentKey = authenticatorSelection.OptBoolean("requireResidentKey", false);
+            var residentKey = authenticatorSelection.OptString("residentKey", null);
+            if (residentKey != "discouraged"
+                &&
+                residentKey != "preferred"
+                &&
+                residentKey != "required")
+            {
+                residentKey = requireResidentKey ? "required" : "discouraged";
+            }
             request.AuthenticatorSelection = new AndroidX.Credentials.WebAuthn.AuthenticatorSelectionCriteria(
                 authenticatorSelection.OptString("authenticatorAttachment", "platform"),
-                authenticatorSelection.OptString("residentKey", null),
-                authenticatorSelection.OptBoolean("requireResidentKey", false),
+                residentKey,
+                requireResidentKey,
                 authenticatorSelection.OptString("userVerification", "preferred"));
 
             return request;
