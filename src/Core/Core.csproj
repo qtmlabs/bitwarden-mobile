@@ -1,8 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <!--When running Unit tests we'll have the custom constant "UT" added, so in this manner we can add the net8.0 target we need for UT -->
-    <TargetFrameworks Condition="$(CustomConstants.Contains(UT))">net8.0;net8.0-android;net8.0-ios</TargetFrameworks>
-    <TargetFrameworks Condition="!$(CustomConstants.Contains(UT))">net8.0-android;net8.0-ios</TargetFrameworks>
+    <TargetFrameworks>net8.0-android</TargetFrameworks>
+    <TargetFrameworks Condition="$(CustomConstants.Contains(UT))">$(TargetFrameworks);net8.0</TargetFrameworks>
+    <TargetFrameworks Condition="$(iOSBuildSupported)">$(TargetFrameworks);net8.0-ios</TargetFrameworks>
     <RootNamespace>Bit.Core</RootNamespace>
 
     <UseMaui>true</UseMaui>
