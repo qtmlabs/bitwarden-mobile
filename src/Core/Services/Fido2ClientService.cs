@@ -113,22 +113,21 @@ namespace Bit.Core.Services
 
             byte[] clientDataJSONBytes = null;
             var clientDataHash = extraParams.ClientDataHash;
+            var clientDataJsonObject = new JsonObject
+            {
+                { "type", "webauthn.create" },
+                { "challenge", CoreHelpers.Base64UrlEncode(createCredentialParams.Challenge) },
+                { "origin", createCredentialParams.Origin },
+                { "crossOrigin", !createCredentialParams.SameOriginWithAncestors }
+                // tokenBinding: {} // Not supported
+            };
+            if (!string.IsNullOrWhiteSpace(extraParams.AndroidPackageName))
+            {
+                clientDataJsonObject.Add("androidPackageName", extraParams.AndroidPackageName);
+            }
+            clientDataJSONBytes = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(clientDataJsonObject));
             if (clientDataHash == null)
             {
-                var clientDataJsonObject = new JsonObject
-                {
-                    { "type", "webauthn.create" },
-                    { "challenge", CoreHelpers.Base64UrlEncode(createCredentialParams.Challenge) },
-                    { "origin", createCredentialParams.Origin },
-                    { "crossOrigin", !createCredentialParams.SameOriginWithAncestors }
-                    // tokenBinding: {} // Not supported
-                };
-                if (!string.IsNullOrWhiteSpace(extraParams.AndroidPackageName))
-                {
-                    clientDataJsonObject.Add("androidPackageName", extraParams.AndroidPackageName);
-                }
-                
-                clientDataJSONBytes = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(clientDataJsonObject));
                 clientDataHash = await _cryptoFunctionService.HashAsync(clientDataJSONBytes, CryptoHashAlgorithm.Sha256);
             }
             var makeCredentialParams = MapToMakeCredentialParams(createCredentialParams, credTypesAndPubKeyAlgs, clientDataHash);
@@ -213,22 +212,21 @@ namespace Bit.Core.Services
 
             byte[] clientDataJSONBytes = null;
             var clientDataHash = extraParams.ClientDataHash;
+            var clientDataJsonObject = new JsonObject
+            {
+                { "type", "webauthn.get" },
+                { "challenge", CoreHelpers.Base64UrlEncode(assertCredentialParams.Challenge) },
+                { "origin", assertCredentialParams.Origin },
+                { "crossOrigin", !assertCredentialParams.SameOriginWithAncestors }
+                // tokenBinding: {} // Not supported
+            };
+            if (!string.IsNullOrWhiteSpace(extraParams.AndroidPackageName))
+            {
+                clientDataJsonObject.Add("androidPackageName", extraParams.AndroidPackageName);
+            }
+            clientDataJSONBytes = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(clientDataJsonObject));
             if (clientDataHash == null)
             {
-                var clientDataJsonObject = new JsonObject
-                {
-                    { "type", "webauthn.get" },
-                    { "challenge", CoreHelpers.Base64UrlEncode(assertCredentialParams.Challenge) },
-                    { "origin", assertCredentialParams.Origin },
-                    { "crossOrigin", !assertCredentialParams.SameOriginWithAncestors }
-                    // tokenBinding: {} // Not supported
-                };
-                if (!string.IsNullOrWhiteSpace(extraParams.AndroidPackageName))
-                {
-                    clientDataJsonObject.Add("androidPackageName", extraParams.AndroidPackageName);
-                }
-
-                clientDataJSONBytes = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(clientDataJsonObject));
                 clientDataHash = await _cryptoFunctionService.HashAsync(clientDataJSONBytes, CryptoHashAlgorithm.Sha256);
             }
             var getAssertionParams = MapToGetAssertionParams(assertCredentialParams, clientDataHash);
