@@ -153,7 +153,7 @@ namespace Bit.Core.Services
                     ClientDataJSON = clientDataJSONBytes,
                     PublicKey = makeCredentialResult.PublicKey,
                     PublicKeyAlgorithm = makeCredentialResult.PublicKeyAlgorithm,
-                    Transports = createCredentialParams.Rp.Id == "google.com" ? new string[] { "internal", "usb" } : new string[] { "internal" }, // workaround for a bug on Google's side
+                    Transports = new string[] { "hybrid", "internal" },
                     Extensions = new Fido2CreateCredentialExtensionsResult
                     {
                         CredProps = credProps
