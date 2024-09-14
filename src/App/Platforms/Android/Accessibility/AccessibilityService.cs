@@ -19,10 +19,10 @@ namespace Bit.Droid.Accessibility
     [Service(Permission = Android.Manifest.Permission.BindAccessibilityService, Label = "Bitwarden", Exported = true)]
     [IntentFilter(new string[] { "android.accessibilityservice.AccessibilityService" })]
     [MetaData("android.accessibilityservice", Resource = "@xml/accessibilityservice")]
-    [Register("com.x8bit.bitwarden.Accessibility.AccessibilityService")]
+    [Register("xyz.qtmlabs.internal.passwordmanager.Accessibility.AccessibilityService")]
     public class AccessibilityService : Android.AccessibilityServices.AccessibilityService
     {
-        private const string BitwardenPackage = "com.x8bit.bitwarden";
+        private const string BitwardenPackage = "xyz.qtmlabs.internal.passwordmanager";
         private const string BitwardenWebsite = "vault.bitwarden.com";
 
         private IStateService _stateService;

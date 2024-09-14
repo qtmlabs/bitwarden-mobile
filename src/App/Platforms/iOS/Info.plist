@@ -9,7 +9,7 @@
 	<key>CFBundleName</key>
 	<string>Bitwarden</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.8bit.bitwarden</string>
+	<string>xyz.qtmlabs.internal.passwordmanager</string>
 	<key>CFBundleShortVersionString</key>
 	<string>2024.7.2</string>
 	<key>CFBundleVersion</key>
@@ -27,11 +27,11 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>com.8bit.bitwarden.url</string>
+			<string>xyz.qtmlabs.internal.passwordmanager.url</string>
 		</dict>
 		<dict>
 			<key>CFBundleURLName</key>
-			<string>com.8bit.bitwarden</string>
+			<string>xyz.qtmlabs.internal.passwordmanager</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>otpauth</string>

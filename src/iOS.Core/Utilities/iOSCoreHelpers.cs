@@ -20,11 +20,11 @@ namespace Bit.iOS.Core.Utilities
 {
     public static class iOSCoreHelpers
     {
-        public static string AppId = "com.8bit.bitwarden";
-        public static string AppAutofillId = "com.8bit.bitwarden.autofill";
-        public static string AppExtensionId = "com.8bit.bitwarden.find-login-action-extension";
-        public static string AppGroupId = "group.com.8bit.bitwarden";
-        public static string AccessGroup = "LTZ2PFU5D6.com.8bit.bitwarden";
+        public static string AppId = "xyz.qtmlabs.internal.passwordmanager";
+        public static string AppAutofillId = "xyz.qtmlabs.internal.passwordmanager.autofill";
+        public static string AppExtensionId = "xyz.qtmlabs.internal.passwordmanager.find-login-action-extension";
+        public static string AppGroupId = "group.xyz.qtmlabs.internal.passwordmanager";
+        public static string AccessGroup = "LTZ2PFU5D6.xyz.qtmlabs.internal.passwordmanager";
 
         public static void SetupMaui()
         {

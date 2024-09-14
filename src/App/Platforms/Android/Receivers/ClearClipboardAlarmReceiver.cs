@@ -3,7 +3,7 @@ using Android.OS;
 
 namespace Bit.Droid.Receivers
 {
-    [BroadcastReceiver(Name = "com.x8bit.bitwarden.ClearClipboardAlarmReceiver", Exported = false)]
+    [BroadcastReceiver(Name = "xyz.qtmlabs.internal.passwordmanager.ClearClipboardAlarmReceiver", Exported = false)]
     public class ClearClipboardAlarmReceiver : BroadcastReceiver
     {
         public override void OnReceive(Context context, Intent intent)

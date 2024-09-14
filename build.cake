@@ -19,8 +19,8 @@ abstract record VariantConfig(
     string DistProvisioningProfilePrefix
     );
 
-const string BASE_BUNDLE_ID_DROID = "com.x8bit.bitwarden";
-const string BASE_BUNDLE_ID_IOS = "com.8bit.bitwarden";
+const string BASE_BUNDLE_ID_DROID = "xyz.qtmlabs.internal.passwordmanager";
+const string BASE_BUNDLE_ID_IOS = "xyz.qtmlabs.internal.passwordmanager";
 
 //NOTE: Beta iOS variants have a different ITSEncryptionExportComplianceCode 
 record Dev(): VariantConfig("Bitwarden Dev", $"{BASE_BUNDLE_ID_DROID}.dev", $"{BASE_BUNDLE_ID_IOS}.dev", "development", "Dist:");
@@ -73,7 +73,7 @@ Task("UpdateAndroidManifest")
 
         // Cake.AndroidAppManifest doesn't currently enable us to access nested items so, quick (not ideal) fix:
         var manifestText = FileReadText(manifestPath);
-        manifestText = manifestText.Replace("com.x8bit.bitwarden.", buildVariant.AndroidPackageName + ".");
+        manifestText = manifestText.Replace("xyz.qtmlabs.internal.passwordmanager.", buildVariant.AndroidPackageName + ".");
         manifestText = manifestText.Replace("android:label=\"Bitwarden\"", $"android:label=\"{buildVariant.AppName}\"");
         FileWriteText(manifestPath, manifestText);
 
@@ -119,7 +119,7 @@ Task("UpdateAndroidCodeFiles")
         var buildVariant = GetVariant();
 
         //We're not using _androidPackageName here because the codefile is currently slightly different string than the one in AndroidManifest.xml
-        var keyName = "com.8bit.bitwarden";
+        var keyName = "xyz.qtmlabs.internal.passwordmanager";
         var fixedPackageName = buildVariant.AndroidPackageName.Replace("x8bit", "8bit");
         var filePath = Path.Combine(_slnPath, "src", "App", "Platforms", "Android", "Services", "BiometricService.cs");
         ReplaceInFile(filePath, keyName, fixedPackageName);
@@ -146,7 +146,7 @@ Task("UpdateAndroidCodeFiles")
 
         foreach(string path in packageFileList)
         {
-            ReplaceInFile(path, "com.x8bit.bitwarden", buildVariant.AndroidPackageName);
+            ReplaceInFile(path, "xyz.qtmlabs.internal.passwordmanager", buildVariant.AndroidPackageName);
         }
 
         var labelFileList = new string[] {
@@ -219,7 +219,7 @@ private void UpdateiOSInfoPlist(string plistPath, VariantConfig buildVariant, Gi
     if(projectType == iOSProjectType.Extension)
     {
         var keyText = plist["NSExtension"]["NSExtensionAttributes"]["NSExtensionActivationRule"];
-        plist["NSExtension"]["NSExtensionAttributes"]["NSExtensionActivationRule"] = keyText.Replace("com.8bit.bitwarden", buildVariant.iOSBundleId);
+        plist["NSExtension"]["NSExtensionAttributes"]["NSExtensionActivationRule"] = keyText.Replace("xyz.qtmlabs.internal.passwordmanager", buildVariant.iOSBundleId);
     }
 
     if(buildVariant is Beta)
@@ -390,7 +390,7 @@ Task("UpdateiOSCodeFiles")
 
         foreach(string path in fileList)
         {
-            ReplaceInFile(path, "com.8bit.bitwarden", buildVariant.iOSBundleId);
+            ReplaceInFile(path, "xyz.qtmlabs.internal.passwordmanager", buildVariant.iOSBundleId);
         }
     });
 

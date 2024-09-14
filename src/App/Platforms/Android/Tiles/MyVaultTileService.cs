@@ -11,7 +11,7 @@ namespace Bit.Droid.Tile
         Icon = "@drawable/shield",
         Exported = true)]
     [IntentFilter(new string[] { ActionQsTile })]
-    [Register("com.x8bit.bitwarden.MyVaultTileService")]
+    [Register("xyz.qtmlabs.internal.passwordmanager.MyVaultTileService")]
     public class MyVaultTileService : TileService
     {
         public override void OnTileAdded()

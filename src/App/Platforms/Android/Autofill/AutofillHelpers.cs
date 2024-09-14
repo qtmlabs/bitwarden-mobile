@@ -152,7 +152,7 @@ namespace Bit.Droid.Autofill
         {
             "androidapp://android",
             "androidapp://com.android.settings",
-            "androidapp://com.x8bit.bitwarden",
+            "androidapp://xyz.qtmlabs.internal.passwordmanager",
             "androidapp://com.oneplus.applocker",
         };
 

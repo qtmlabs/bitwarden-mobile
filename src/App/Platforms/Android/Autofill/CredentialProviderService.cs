@@ -16,7 +16,7 @@ namespace Bit.Droid.Autofill
     [Service(Permission = Manifest.Permission.BindCredentialProviderService, Label = "Bitwarden", Exported = true)]
     [IntentFilter(new string[] { "android.service.credentials.CredentialProviderService" })]
     [MetaData("android.credentials.provider", Resource = "@xml/provider")]
-    [Register("com.x8bit.bitwarden.Autofill.CredentialProviderService")]
+    [Register("xyz.qtmlabs.internal.passwordmanager.Autofill.CredentialProviderService")]
     public class CredentialProviderService : AndroidX.Credentials.Provider.CredentialProviderService
     {
         public const string GetFido2IntentAction = "PACKAGE_NAME.GET_PASSKEY";

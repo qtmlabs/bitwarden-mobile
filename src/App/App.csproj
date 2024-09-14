@@ -20,8 +20,8 @@
 		<ApplicationTitle>Bitwarden</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">com.8bit.bitwarden</ApplicationId>
-		<ApplicationId Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">com.x8bit.bitwarden</ApplicationId>
+		<ApplicationId Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">xyz.qtmlabs.internal.passwordmanager</ApplicationId>
+		<ApplicationId Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">xyz.qtmlabs.internal.passwordmanager</ApplicationId>
 		<ApplicationIdGuid>ccf4766c-a36c-4647-900c-0ea7d323ccc6</ApplicationIdGuid>
 
 		<!-- Versions -->

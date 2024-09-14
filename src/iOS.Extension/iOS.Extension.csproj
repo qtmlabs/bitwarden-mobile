@@ -4,7 +4,7 @@
       <TargetFrameworks>net8.0-ios</TargetFrameworks>
       <UseMaui>True</UseMaui>
       <OutputType>Library</OutputType>
-      <ApplicationId>com.8bit.bitwarden.find-login-action-extension</ApplicationId>
+      <ApplicationId>xyz.qtmlabs.internal.passwordmanager.find-login-action-extension</ApplicationId>
       <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
       <ApplicationVersion>1</ApplicationVersion>
 

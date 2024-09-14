@@ -2,6 +2,6 @@ using Android.Runtime;
 
 namespace Bit.Droid
 {
-    [Register("com.x8bit.bitwarden.PasskeyHandlerActivity")]
+    [Register("xyz.qtmlabs.internal.passwordmanager.PasskeyHandlerActivity")]
     public class PasskeyHandlerActivity : MainActivity { }
 }

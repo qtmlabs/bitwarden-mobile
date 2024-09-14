@@ -4,7 +4,7 @@
       <TargetFrameworks>net8.0-ios</TargetFrameworks>
       <UseMaui>True</UseMaui>
       <OutputType>Library</OutputType>
-      <ApplicationId>com.8bit.bitwarden.autofill</ApplicationId>
+      <ApplicationId>xyz.qtmlabs.internal.passwordmanager.autofill</ApplicationId>
       <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
       <ApplicationVersion>1</ApplicationVersion>
 		  <RootNamespace>Bit.iOS.Autofill</RootNamespace>

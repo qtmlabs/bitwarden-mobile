@@ -2,7 +2,7 @@
 {
     public static class Constants
     {
-        public const string PACKAGE_NAME = "com.x8bit.bitwarden";
+        public const string PACKAGE_NAME = "xyz.qtmlabs.internal.passwordmanager";
         public const string TEMP_CAMERA_IMAGE_NAME = "temp_camera_image.jpg";
         
         /// <summary>

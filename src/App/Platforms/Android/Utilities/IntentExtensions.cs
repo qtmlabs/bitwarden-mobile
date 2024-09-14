@@ -29,7 +29,7 @@ namespace Bit.App.Droid.Utilities
 
         public static bool IsPasskeyHandlerIntent(this Intent intent)
         {
-            return intent?.Component?.ClassName == "com.x8bit.bitwarden.PasskeyHandlerActivity";
+            return intent?.Component?.ClassName == "xyz.qtmlabs.internal.passwordmanager.PasskeyHandlerActivity";
         }
 
         public static string GetFido2CredentialAction(this Intent intent)

@@ -36,7 +36,7 @@ namespace Bit.Droid
 #else
     [Application(Debuggable = false)]
 #endif
-    [Register("com.x8bit.bitwarden.MainApplication")]
+    [Register("xyz.qtmlabs.internal.passwordmanager.MainApplication")]
 #if FDROID
     public class MainApplication : MauiApplication
 #else

@@ -8,7 +8,7 @@ using Bit.App.Droid.Utilities;
 
 namespace Bit.Droid.Receivers
 {
-    [BroadcastReceiver(Name = "com.x8bit.bitwarden.RestrictionsChangedReceiver", Exported = false)]
+    [BroadcastReceiver(Name = "xyz.qtmlabs.internal.passwordmanager.RestrictionsChangedReceiver", Exported = false)]
     [IntentFilter(new[] { Intent.ActionApplicationRestrictionsChanged })]
     public class RestrictionsChangedReceiver : BroadcastReceiver
     {
