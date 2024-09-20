@@ -346,8 +346,7 @@ namespace Bit.Core.Services
                 !cipher.IsDeleted &&
                 cipher.Type == CipherType.Login &&
                 cipher.Login.HasFido2Credentials &&
-                cipher.Login.MainFido2Credential.RpId == rpId &&
-                cipher.Login.MainFido2Credential.DiscoverableValue
+                cipher.Login.MainFido2Credential.RpId == rpId
             );
         }
 

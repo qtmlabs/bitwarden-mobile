@@ -261,14 +261,9 @@ namespace Bit.Core.Services
             PublicKeyCredentialParameters[] credTypesAndPubKeyAlgs,
             byte[] clientDataHash)
         {
-            var requireResidentKey = createCredentialParams.AuthenticatorSelection?.ResidentKey == "required" ||
-                createCredentialParams.AuthenticatorSelection?.ResidentKey == "preferred" ||
-                (createCredentialParams.AuthenticatorSelection?.ResidentKey == null &&
-                createCredentialParams.AuthenticatorSelection?.RequireResidentKey == true);
-
             return new Fido2AuthenticatorMakeCredentialParams
             {
-                RequireResidentKey = requireResidentKey,
+                RequireResidentKey = true,
                 UserVerificationPreference = Fido2UserVerificationPreferenceExtensions.ToFido2UserVerificationPreference(createCredentialParams.AuthenticatorSelection?.UserVerification),
                 ExcludeCredentialDescriptorList = createCredentialParams.ExcludeCredentials,
                 CredTypesAndPubKeyAlgs = credTypesAndPubKeyAlgs,
