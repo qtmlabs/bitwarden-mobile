@@ -10,6 +10,7 @@ using AndroidX.Credentials.Exceptions;
 using Bit.App.Droid.Utilities;
 using Bit.Core.Resources.Localization;
 using Bit.Core.Utilities.Fido2;
+using Bit.App.Platforms.Android.Autofill;
 
 namespace Bit.Droid.Autofill
 {
@@ -106,6 +107,11 @@ namespace Bit.Droid.Autofill
 
         private async Task<BeginCreateCredentialResponse> HandleCreatePasskeyQueryAsync(BeginCreatePublicKeyCredentialRequest optionRequest)
         {
+            if (CredentialHelpers.ShouldIgnoreBeginCreatePublicKeyCredentialRequest(optionRequest))
+            {
+                return new BeginCreateCredentialResponse();
+            }
+
             var intent = new Intent(ApplicationContext, typeof(PasskeyHandlerActivity));
             intent.PutExtra(CredentialProviderConstants.Fido2CredentialAction, CredentialProviderConstants.Fido2CredentialCreate);
             var pendingIntent = PendingIntent.GetActivity(ApplicationContext, UniqueCreateRequestCode, intent,
@@ -132,7 +138,7 @@ namespace Bit.Droid.Autofill
 
             foreach (var option in request.BeginGetCredentialOptions.OfType<BeginGetPublicKeyCredentialOption>())
             {
-                credentialEntries.AddRange(await Bit.App.Platforms.Android.Autofill.CredentialHelpers.PopulatePasskeyDataAsync(request.CallingAppInfo, option, ApplicationContext, false));
+                credentialEntries.AddRange(await CredentialHelpers.PopulatePasskeyDataAsync(request.CallingAppInfo, option, ApplicationContext, false));
             }
 
             if (!credentialEntries.Any())

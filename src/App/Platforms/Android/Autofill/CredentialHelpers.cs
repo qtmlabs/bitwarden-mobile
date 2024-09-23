@@ -91,6 +91,13 @@ namespace Bit.App.Platforms.Android.Autofill
             return request;
         }
 
+        public static bool ShouldIgnoreBeginCreatePublicKeyCredentialRequest(BeginCreatePublicKeyCredentialRequest request)
+        {
+            return GetPublicKeyCredentialCreationOptionsFromJson(request.RequestJson)
+                .AuthenticatorSelection
+                .AuthenticatorAttachment == "cross-platform";
+        }
+
         private static Core.Utilities.Fido2.PublicKeyCredentialDescriptor[] ParsePublicKeyCredentialDescriptors(string json, string field)
         {
             var descriptors = new List<Core.Utilities.Fido2.PublicKeyCredentialDescriptor>();
