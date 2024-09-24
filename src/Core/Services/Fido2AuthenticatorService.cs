@@ -13,6 +13,12 @@ namespace Bit.Core.Services
         // AAGUID: d548826e-79b4-db40-a3d8-11116f7e8349
         public static readonly byte[] AAGUID = new byte[] { 0xd5, 0x48, 0x82, 0x6e, 0x79, 0xb4, 0xdb, 0x40, 0xa3, 0xd8, 0x11, 0x11, 0x6f, 0x7e, 0x83, 0x49 };
 
+        public static readonly Dictionary<string, byte[]> AAGUIDOverrides = new()
+        {
+            // QTM Labs SSO: 22016c83-77ff-41b3-a196-92a3f240d111
+            ["identity.qtmlabs.xyz"] = [0x22, 0x01, 0x6c, 0x83, 0x77, 0xff, 0x41, 0xb3, 0xa1, 0x96, 0x92, 0xa3, 0xf2, 0x40, 0xd1, 0x11],
+        };
+
         private readonly ICipherService _cipherService;
         private readonly ISyncService _syncService;
         private readonly ICryptoFunctionService _cryptoFunctionService;
@@ -415,7 +421,8 @@ namespace Bit.Core.Services
             {
                 var attestedCredentialData = new List<byte>();
 
-                attestedCredentialData.AddRange(AAGUID);
+                var aaguid = AAGUIDOverrides.GetValueOrDefault(rpId, AAGUID);
+                attestedCredentialData.AddRange(aaguid);
 
                 // credentialIdLength (2 bytes) and credential Id
                 var credentialIdLength = new byte[] {
